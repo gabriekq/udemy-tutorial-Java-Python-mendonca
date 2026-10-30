@@ -1,0 +1,39 @@
+type Query {
+  firstQuery : String
+  secondQuery : String
+  fullName(firstName : String, lastName : String) : String
+  fullName2(person : Person) : String
+  student(id : Int) : StudentResponse
+}
+
+input Person {
+	firstName : String!
+	lastName : String!
+	age : Int!
+}
+
+type StudentResponse {
+  	 id : Int
+	 firstName : String
+	 lastName : String
+	 email : String
+	 street : String
+	 city : String
+	 learningSubjects(subjectNameFilter : [SubjectNameFilter]) : [SubjectResponse]
+	 fullName : String
+}
+
+type SubjectResponse {
+      id : Int
+	  subjectName : String
+	  marksObtained : Float
+}
+
+enum SubjectNameFilter {
+
+	Java,
+	SQL,
+	SAP,
+	Python,
+	All
+}
